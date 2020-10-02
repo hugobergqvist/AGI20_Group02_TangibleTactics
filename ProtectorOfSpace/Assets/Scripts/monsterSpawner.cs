@@ -24,8 +24,10 @@ public class monsterSpawner : MonoBehaviour
         _yAxis = 5;
         _zAxis = UnityEngine.Random.Range(Min.z, Max.z) * (Random.Range(0, 2) * 2 - 1);
         _randomPosition = new Vector3(_xAxis, _yAxis, _zAxis);
-        if (unityGameObjects.Count < 10)
+
+        if (unityGameObjects.Count < 20)
         {
+            Debug.Log("REACH");
             InstantiateRandomObjects();
         }
     }
@@ -55,6 +57,7 @@ public class monsterSpawner : MonoBehaviour
             {
                 unityGameObjects.Remove(unityGameObjects[i]);
                 Destroy(monsterToDestroy);
+                return;
             }
         }
 
