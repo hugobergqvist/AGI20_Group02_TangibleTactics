@@ -20,6 +20,8 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    public Transform LineOfSightChecker;
+
 
     // Start is called before the first frame update
     void Start()
@@ -85,9 +87,9 @@ public class Turret : MonoBehaviour
     bool CheckIfFreeSight()
     {
 
-        Vector3 dir = (target.position - firePoint.position).normalized;
+        Vector3 dir = (target.position - LineOfSightChecker.position).normalized;
         RaycastHit hit = new RaycastHit();
-        Ray ray = new Ray(firePoint.position, dir);
+        Ray ray = new Ray(LineOfSightChecker.position, dir);
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.transform.tag == "Enemy")
@@ -96,12 +98,14 @@ public class Turret : MonoBehaviour
             }
             else
             {
+                // Another object is in the way 
                 return false;
             }
 
         }
         else
         {
+            // No object is in line of sight. 
             return false;
         }
 
