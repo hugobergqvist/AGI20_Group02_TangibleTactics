@@ -19,6 +19,7 @@ public class PlaceTangible : MonoBehaviour
     void Start()
     {
         GameManager = GameManager.instance;
+
     }
 
     void Update()

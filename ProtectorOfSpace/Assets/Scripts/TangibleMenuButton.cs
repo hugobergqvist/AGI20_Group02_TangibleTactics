@@ -35,8 +35,9 @@ public class TangibleMenuButton : MonoBehaviour
     // You just set up the Event in the inspector for easy peasy, but the UnityEvent could also be coded the same way if needed.
     public void EventClick() // methods have to be public void to be used by UnityEvents, they can't really return anything either, as far as I know... At least I don't know how an event will capture the return...
     {
-        return;
         Debug.Log("Which also triggered this method as a UnityEvent!");
+        return;
+
     }
 
 
@@ -50,12 +51,12 @@ public class TangibleMenuButton : MonoBehaviour
             {
                 currentGO = GameManager.objectToPlace.transform.GetChild(0).gameObject;
                 currentGO.SetActive(true);
-                currentGO.GetComponent<Turret>().enabled = true;
+
 
                 GameManager.objectToPlace.transform.GetChild(1).gameObject.SetActive(false);
                 GameManager.objectToPlace.transform.GetChild(2).gameObject.SetActive(false);
             }
-            else if (button.name == "OptionDecoy")
+            else if (button.name == "OptionTurret")
             {
                 currentGO = GameManager.objectToPlace.transform.GetChild(2).gameObject;
                 currentGO.SetActive(true);

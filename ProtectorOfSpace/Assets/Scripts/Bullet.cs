@@ -7,7 +7,18 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 70f;
     public GameObject impactEffect;
 
-    public void Seek (Transform _target)
+    GameManager GameManager;
+
+
+
+    void Start()
+    {
+
+        GameManager = GameManager.instance;
+
+    }
+
+    public void Seek(Transform _target)
     {
         target = _target;
     }
@@ -15,7 +26,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (target == null)
+        if (target == null)
         {
             Destroy(gameObject);
             return;
@@ -34,12 +45,12 @@ public class Bullet : MonoBehaviour
 
     }
 
-    void HitTarget ()
+    void HitTarget()
     {
         GameObject effectInst = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectInst, 2f);
-
-        Destroy(target.gameObject);
+        GameManager.GetComponent<monsterSpawner>().DestroyMonster(target.gameObject);
         Destroy(gameObject);
+
     }
 }

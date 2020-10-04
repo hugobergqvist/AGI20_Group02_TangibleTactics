@@ -11,6 +11,7 @@ public class monsterMovement : MonoBehaviour
     // Update is called once per frame
 
     public Vector3 target;
+
     void FixedUpdate()
     {
         target = new Vector3(0, 0, 0);
@@ -28,4 +29,6 @@ public class monsterMovement : MonoBehaviour
 
 
     }
+
+
 }

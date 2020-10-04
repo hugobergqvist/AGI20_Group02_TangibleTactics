@@ -14,20 +14,22 @@ public class monsterSpawner : MonoBehaviour
 
     private List<GameObject> unityGameObjects = new List<GameObject>();
     public GameObject Monster;
+
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         SetRanges();
     }
-    private void Update()
+    void Update()
     {
         _xAxis = UnityEngine.Random.Range(Min.x, Max.x) * (Random.Range(0, 2) * 2 - 1);
-        _yAxis = 5;
+        _yAxis = 5f;
         _zAxis = UnityEngine.Random.Range(Min.z, Max.z) * (Random.Range(0, 2) * 2 - 1);
         _randomPosition = new Vector3(_xAxis, _yAxis, _zAxis);
 
         if (unityGameObjects.Count < 20)
         {
-            Debug.Log("REACH");
             InstantiateRandomObjects();
         }
     }
@@ -55,6 +57,7 @@ public class monsterSpawner : MonoBehaviour
             // Check if list at index of i is equal to destroyedObject / list is containing destroyedObject
             if (unityGameObjects[i] == monsterToDestroy)
             {
+                audioSource.Play();
                 unityGameObjects.Remove(unityGameObjects[i]);
                 Destroy(monsterToDestroy);
                 return;
