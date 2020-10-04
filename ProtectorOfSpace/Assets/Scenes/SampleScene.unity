@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canInstantiate: 1
-  Monster: {fileID: 1090219386143568, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
+  Monster: {fileID: 1043745733370155430, guid: ddba3115fb6d84f708aa9b96a9406fc5, type: 3}
 --- !u!114 &1317543788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,7 +635,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5f81bdff582c2fc4488e1129bc037245, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
