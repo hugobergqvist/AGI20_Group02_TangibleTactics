@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class monsterSpawner : MonoBehaviour
+public class MonsterSpawner : MonoBehaviour
 {
     private Vector3 Min;
     private Vector3 Max;
@@ -11,11 +11,23 @@ public class monsterSpawner : MonoBehaviour
     private float _zAxis; //If you need this, use it
     private Vector3 _randomPosition;
     public bool _canInstantiate;
-
+    public static MonsterSpawner instance;
     private List<GameObject> unityGameObjects = new List<GameObject>();
     public GameObject Monster;
 
+
     private AudioSource audioSource;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("More than one Monster Spawner in scene!");
+            return;
+        }
+        instance = this;
+    }
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();

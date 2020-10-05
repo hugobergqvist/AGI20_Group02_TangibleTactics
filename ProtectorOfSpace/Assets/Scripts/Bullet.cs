@@ -2,54 +2,54 @@
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
 
     public float bulletSpeed = 70f;
     public GameObject impactEffect;
 
     GameManager GameManager;
-
+    MonsterSpawner MonsterSpawner;
 
 
     void Start()
     {
 
-        GameManager = GameManager.instance;
+        MonsterSpawner = MonsterSpawner.instance;
 
     }
 
-    public void Seek(Transform _target)
-    {
-        target = _target;
-    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
+
+        if (Mathf.Abs(transform.position.x) > 60 || Mathf.Abs(transform.position.z) > 60)
         {
             Destroy(gameObject);
-            return;
         }
 
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = transform.forward;
         float distanceThisFrame = bulletSpeed * Time.deltaTime;
-
-        if (dir.magnitude <= distanceThisFrame)
-        {
-            HitTarget();
-            return;
-        }
-
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            HitTarget(collision.gameObject);
 
-    void HitTarget()
+        }
+    }
+
+
+
+
+    void HitTarget(GameObject targetHit)
     {
         GameObject effectInst = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectInst, 2f);
-        GameManager.GetComponent<monsterSpawner>().DestroyMonster(target.gameObject);
+        MonsterSpawner.GetComponent<MonsterSpawner>().DestroyMonster(targetHit);
         Destroy(gameObject);
 
     }

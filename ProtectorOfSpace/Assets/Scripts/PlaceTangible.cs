@@ -25,6 +25,7 @@ public class PlaceTangible : MonoBehaviour
     void Update()
     {
         //transform.position = Vector3.Lerp(transform.position, myposition, 0.75f * Time.deltaTime);
+        /* 
         if (Input.touchCount > 0)
         {
 
@@ -57,6 +58,7 @@ public class PlaceTangible : MonoBehaviour
 
 
         }
+        */
     }
 
 

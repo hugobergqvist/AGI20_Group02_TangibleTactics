@@ -10,6 +10,15 @@ public class GameManager : MonoBehaviour
     public bool placedTangible = false;
     public GameObject objectToPlace;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.Play();
+    }
+
     void Awake()
     {
         if (instance != null)

@@ -24,7 +24,7 @@ public class monsterMovement : MonoBehaviour
 
         if (collision.collider.tag == "Player")
         {
-            FindObjectOfType<monsterSpawner>().DestroyMonster(gameObject);
+            FindObjectOfType<MonsterSpawner>().DestroyMonster(gameObject);
         }
 
 
