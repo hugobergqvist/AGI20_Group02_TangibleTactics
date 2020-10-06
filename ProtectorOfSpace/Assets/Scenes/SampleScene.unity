@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.007278891, g: 0.004110672, b: 0.0044536805, a: 1}
+  m_IndirectSpecularColor: {r: 0.0060107377, g: 0.0041041593, b: 0.004062842, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -802,7 +802,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.152
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -982,8 +982,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2095328348}
-  - component: {fileID: 2095328350}
   - component: {fileID: 2095328349}
+  - component: {fileID: 2095328350}
   m_Layer: 0
   m_Name: MonsterSpawner
   m_TagString: Untagged
