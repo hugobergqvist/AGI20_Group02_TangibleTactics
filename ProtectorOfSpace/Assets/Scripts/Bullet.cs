@@ -35,9 +35,16 @@ public class Bullet : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("The bullet hit: " + collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
             HitTarget(collision.gameObject);
+        }
+        else
+        {
+            GameObject effectInst = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(effectInst, 2f);
+            Destroy(gameObject);
 
         }
     }
