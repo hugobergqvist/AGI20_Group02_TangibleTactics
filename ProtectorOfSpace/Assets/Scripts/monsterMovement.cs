@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Monster))]
 public class monsterMovement : MonoBehaviour
 {
-
-
-    public float speed = 2f;
-    // Update is called once per frame
-
     public Vector3 target;
+    private Monster monster;
 
-    void FixedUpdate()
+    void Start()
+    {
+        monster = GetComponent<Monster>();
+    }
+
+    void Update()
     {
         target = new Vector3(0, 0, 0);
-        float step = speed * Time.deltaTime;
+        float step = monster.speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, step);
     }
 
