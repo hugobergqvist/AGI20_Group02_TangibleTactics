@@ -21,16 +21,6 @@ public class monsterMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, step);
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.collider.tag == "Player")
-        {
-            FindObjectOfType<MonsterSpawner>().DestroyMonster(gameObject);
-        }
-
-
-    }
 
 
 }

@@ -86,13 +86,6 @@ public class MonsterSpawner : MonoBehaviour
         g.transform.LookAt(new Vector3(0f, 0f, 0f));
     }
 
-    // we are not using this function anymore. Instead, the logic is in Monster.cs under Die() function. 
-    public void DestroyMonster(GameObject monsterToDestroy)
-    {
-        monsterCount--;
-        Destroy(monsterToDestroy);
-        return;
 
-    }
 }
 
